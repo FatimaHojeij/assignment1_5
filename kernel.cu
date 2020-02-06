@@ -57,7 +57,7 @@ void grav_gpu(float m0, float* m, float* r, float* F, int numBodies) {
 
     // TODO
 
-	grav_kernel(m0, m, r, F, numBodies);
+	grav_kernel<<< 1, numBodies>>>(m0, m, r, F, numBodies);
 
 
 
