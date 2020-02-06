@@ -1,17 +1,17 @@
 
-NVCC        = nvcc
-NVCC_FLAGS  = -O3
-OBJ         = main.o kernel.o
-EXE         = mm
+NVCC    = nvcc
+OBJ     = main.o kernel.o
+DEPS    = grav.h timer.h
+EXE     = grav
 
 
 default: $(EXE)
 
 %.o: %.cu
-	$(NVCC) $(NVCC_FLAGS) -c -o $@ $<
+	$(NVCC) -c -o $@ $<
 
 $(EXE): $(OBJ)
-	$(NVCC) $(NVCC_FLAGS) $(OBJ) -o $(EXE)
+	$(NVCC) $(OBJ) -o $(EXE)
 
 clean:
 	rm -rf $(OBJ) $(EXE)
