@@ -5,8 +5,8 @@
 __global__ void grav_kernel(float m0, float* m, float* r, float* F, int numBodies) {
 
     // TODO
-	int i = blockDim.m*blockIdx.m + threadIdx.m;
-	if(i<N){
+	int i = blockDim.x*blockIdx.x + threadIdx.x;
+	if(i<numBodies){
 		F[i] = G*m0*m[i]/(r[i]*r[i]);
 	}
 		
